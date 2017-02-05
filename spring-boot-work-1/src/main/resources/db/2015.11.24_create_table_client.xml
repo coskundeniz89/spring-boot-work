@@ -1,0 +1,26 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="coskun.deniz">
+        <comment>Create CLIENT table. This table contains common client info for person and firm.</comment>
+        <createTable tableName="CLIENT">
+            <column name="ID" type="NUMBER"/>
+            <column name="TITLE" type="NVARCHAR2(1000)"/>
+            <column name="NATIONALITY_ID" type="NUMBER"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="coskun.deniz">
+        <comment>Create SEQUENCE for ID column in CLIENT table.</comment>
+        <createSequence sequenceName="SEQ_CLIENT_ID"
+                        minValue="0"
+                        startValue="5000000"
+                        incrementBy="1"
+                        ordered="true"/>
+    </changeSet>
+
+</databaseChangeLog>
