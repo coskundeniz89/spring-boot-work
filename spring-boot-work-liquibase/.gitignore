@@ -1,4 +1,11 @@
-build/
+### Java
+*.jar
+
+### Gradle
 .gradle/
+build/
+!gradle-wrapper.jar
+!ojdbc6.jar
+### JetBrains
 .idea/
-classes/
+*.iml
