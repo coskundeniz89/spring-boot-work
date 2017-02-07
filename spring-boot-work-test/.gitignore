@@ -8,7 +8,3 @@ build/
 ### JetBrains
 .idea/
 *.iml
-
-### Slf4j
-logs/
-
