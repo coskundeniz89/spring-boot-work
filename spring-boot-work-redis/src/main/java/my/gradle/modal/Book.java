@@ -1,8 +1,7 @@
-package my.gradle;
-
-import com.sun.xml.internal.ws.developer.Serialization;
+package my.gradle.modal;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by coskun.deniz on 07.02.2017.
@@ -13,7 +12,8 @@ public class Book implements Serializable {
 
   private String id;
   private String name;
-  private String publisher;
+  private Publisher publisher;
+  private List<BookPage> pages;
 
   public String getId() {
     return id;
@@ -31,11 +31,19 @@ public class Book implements Serializable {
     this.name = name;
   }
 
-  public String getPublisher() {
+  public Publisher getPublisher() {
     return publisher;
   }
 
-  public void setPublisher(String publisher) {
+  public void setPublisher(Publisher publisher) {
     this.publisher = publisher;
+  }
+
+  public List<BookPage> getPages() {
+    return pages;
+  }
+
+  public void setPages(List<BookPage> pages) {
+    this.pages = pages;
   }
 }

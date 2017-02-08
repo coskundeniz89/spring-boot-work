@@ -22,8 +22,8 @@ public class SpringBootExampleApplication {
   JedisConnectionFactory jedisConnectionFactory;
 
   @Bean
-  public RedisTemplate<String, Objects> redisTemplate() {
-    RedisTemplate<String, Objects> redisTemplate = new RedisTemplate<String, Objects>();
+  public RedisTemplate<String, Object> redisTemplate() {
+    RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();
 
     redisTemplate.setConnectionFactory(jedisConnectionFactory);
     return redisTemplate;
