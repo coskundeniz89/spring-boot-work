@@ -24,18 +24,19 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest
 public class BookRepositoryTest {
 
-  public static final String MY_NEW_BOOK = "Yeni kitabım";
-  public static final String MY_BOOK = "BenimKitap";
+  private static final String MY_NEW_BOOK = "Yeni kitabım";
+  private static final String MY_BOOK = "BenimKitap";
+
   @Autowired
   private BookRepository bookRepository;
 
   @Test
-  public void bookRepository_IsNotNull() {
+  public void bookRepository_ShouldNotNull() {
     Assert.assertNotNull(bookRepository);
   }
 
   @Test
-  public void testBook_InsertEntry() {
+  public void saveBook_ShouldInsertSuccess() {
     Book newBook = new Book();
     newBook.setId(MY_BOOK);
     newBook.setName(MY_NEW_BOOK);
@@ -69,18 +70,18 @@ public class BookRepositoryTest {
   }
 
   @Test
-  public void bookRepository_FindAll() {
+  public void findAll_ShouldSize1() {
     assertEquals(1, bookRepository.findAllBook().size());
   }
 
   @Test
-  public void bookRepository_FindAllForOneBook() {
+  public void findAll_ShouldGetMyBook() {
     Book myBook = ((Book) bookRepository.findAllBook().get(MY_BOOK));
     assertEquals(MY_NEW_BOOK, myBook.getName());
   }
 
   @Test
-  public void bookRepository_GetOneBookPageSize() {
+  public void findBook_ShouldPageSize3() {
     Book myBook = bookRepository.findBook(MY_BOOK);
     assertEquals(3, myBook.getPages().size());
   }

@@ -23,7 +23,7 @@ public class PersitenceTest {
   private RedisTemplate<String, Object> redisTemplate;
 
   @Test
-  public void flushAll() {
+  public void flushAll_ShouldBeKeysSize0() {
     redisTemplate.getConnectionFactory().getConnection().flushAll();
     Set<byte[]> keys = redisTemplate.getConnectionFactory().getConnection().keys("*".getBytes());
     assertEquals(0, keys.size());
