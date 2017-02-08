@@ -11,7 +11,6 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 import java.util.Objects;
 
 @SpringBootApplication
-//@EnableRedisRepositories
 public class SpringBootExampleApplication {
 
   public static void main(String[] args) {
