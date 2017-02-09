@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Reference;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.index.Indexed;
 
@@ -13,18 +14,21 @@ import java.util.List;
 /**
  * Created by coskun.deniz on 07.02.2017.
  */
+@Data
+@EqualsAndHashCode
 @RedisHash("books")
-//@EqualsAndHashCode
+@NoArgsConstructor
 public class Book {
 
-  //  @Id
+  @Id
   private String id;
 
-  //  @Indexed
+  @Indexed
   private String name;
 
   private Publisher publisher;
 
+//  @Reference
   private List<BookPage> pages;
 
   public String getId() {
