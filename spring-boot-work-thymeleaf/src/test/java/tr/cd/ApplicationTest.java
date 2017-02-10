@@ -29,7 +29,7 @@ public class ApplicationTest {
   @Test
   public void getIndex() throws Exception {
     mvc.perform(MockMvcRequestBuilders.get("/")
-        .accept(MediaType.APPLICATION_JSON))
+        .accept(MediaType.TEXT_HTML))
         .andExpect(status().isOk())
         .andExpect(content().string(containsString("Merhaba Türkiye")));
   }
