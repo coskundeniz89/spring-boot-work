@@ -1,4 +1,4 @@
-# About
+# Spring Boot + Docker + Web
 This is a simple example of spring boot dockerizing.
 
 ### Docker settings
