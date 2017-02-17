@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<header th:fragment="header">
+    <h3>
+        This part is from 'Header' fragment.
+    </h3>
+    <nav id="menu" class="content">
+        <ul>
+            <li>
+                <a href="../index.html" th:href="@{/index.html}" th:text="#{menu.home}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="../form.html" th:href="@{/form.html}" th:text="#{menu.form}">
+                    Form
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+</body>
+</html>
