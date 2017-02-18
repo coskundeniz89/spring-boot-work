@@ -8,19 +8,21 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
-    compile("org.springframework.boot:spring-boot-devtools")
 
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+}
+
+//Resourceu dışarı çıkarmadan direkt kullanır.
+//Sayfalarda yapılacak değişiklik anında yansır.
+bootRun {
+    addResources = true
 }
