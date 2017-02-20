@@ -8,10 +8,25 @@
 }
 
 .content {
-    width=900px;
+    width:900px;
     margin:0 auto;
 }
 
-h3{
+h3 {
     border-top:1px solid black;
+    padding:5px;
+    margin:5px;
+}
+
+.clear {
+    clear:both;
+}
+
+hr {
+    margin:10px;
+}
+
+section {
+    min-height:500px;
+    padding:50px 0;
 }
