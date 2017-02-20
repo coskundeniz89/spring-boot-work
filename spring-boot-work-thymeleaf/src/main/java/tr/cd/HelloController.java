@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 public class HelloController {
 
-  @RequestMapping("/")
+  @RequestMapping({"/","/index"})
   public String getIndex() {
     return "index";
   }
