@@ -27,6 +27,9 @@
             <th>
                 Quantity
             </th>
+            <th>
+                Detail
+            </th>
         </tr>
         <tr th:each="prod : ${prods}" th:class="${prodStat.odd}? 'odd'">
             <td th:text="${prod.id}">
@@ -37,6 +40,13 @@
             </td>
             <td th:text="${prod.quantity}">
                 324
+            </td>
+            <td>
+                <a href="detail.html" th:href="@{/detail(id=${prod.id})}" >
+                    <strong>
+                        Detail
+                    </strong>
+                </a>
             </td>
         </tr>
     </table>
