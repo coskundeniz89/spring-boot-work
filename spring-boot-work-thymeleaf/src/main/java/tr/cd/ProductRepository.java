@@ -2,6 +2,7 @@ package tr.cd;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by erhan.karakaya on 2/21/2017.
@@ -19,5 +20,15 @@ public class ProductRepository {
       products.add(new Product(5, "Dosya", 16));
     }
     return products;
+  }
+
+  public static Product getProductById(Integer id) {
+
+    List<Product> products = getProducts();
+
+    Optional<Product> product = products.stream().filter(p->p.getId()==id).findFirst();
+
+    return product.orElse(new Product(0,"Title",0));
+
   }
 }
