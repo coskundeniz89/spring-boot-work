@@ -2,6 +2,10 @@
 #### Run Application
 > ./gradlew build && java -jar build/libs/spring-boot-work-thymeleaf.jar
 
+or
+
+> ./gradlew bootRun
+
 Now the app will work on http://localhost:8080/
 
 #### Fragment
@@ -18,3 +22,5 @@ Form & Validation example; using post, object, if, errors; in: http://localhost:
 #### Internationalization
 
 messages.properties and messages_tr.properties files
+
+(Only the main menu is internationalized)
