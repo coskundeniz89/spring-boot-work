@@ -5,6 +5,10 @@ package tr.cd;
  */
 public class Product {
 
+  public Product() {
+
+  }
+
   public Product(Integer id, String title, Integer quantity) {
     this.id = id;
     this.title = title;

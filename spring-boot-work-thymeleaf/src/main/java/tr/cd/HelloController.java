@@ -53,4 +53,13 @@ public class HelloController {
   }
 
 
+  @RequestMapping(value = "/detail", method = RequestMethod.POST)
+  public String getProductById(Product product) {
+
+    ProductRepository.saveProduct(product);
+
+    return "redirect:detail?id=" + product.getId();
+  }
+
+
 }

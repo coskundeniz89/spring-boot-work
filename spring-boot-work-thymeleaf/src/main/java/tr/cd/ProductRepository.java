@@ -2,6 +2,7 @@ package tr.cd;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -26,9 +27,19 @@ public class ProductRepository {
 
     List<Product> products = getProducts();
 
-    Optional<Product> product = products.stream().filter(p->p.getId()==id).findFirst();
+    Optional<Product> product = products.stream().filter(p -> p.getId() == id).findFirst();
 
-    return product.orElse(new Product(0,"Title",0));
+    return product.orElse(new Product(0, "Title", 0));
 
+  }
+
+  public static void saveProduct(Product product) {
+    Objects.requireNonNull(product);
+    Product existingProduct = getProductById(product.getId());
+
+    if (existingProduct.getId() != 0) {
+      products.remove(existingProduct);
+      products.add(product);
+    }
   }
 }
