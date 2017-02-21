@@ -14,15 +14,16 @@
         Form Example
     </h2>
     <form action="" method="post" th:action="@{/detail}" th:object="${product}">
-        <input type="hidden" th:field="*{id}" />
+
         <table>
             <tr>
                 <td>
                     Id:
                 </td>
                 <td>
-                    <span th:text="*{id}">0</span>
+                    <input th:field="*{id}" />
                 </td>
+                <td th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Id Error</td>
             </tr>
             <tr>
                 <td>
@@ -31,6 +32,7 @@
                 <td>
                     <input th:field="*{title}" />
                 </td>
+                <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</td>
             </tr>
             <tr>
                 <td>
@@ -39,6 +41,7 @@
                 <td>
                     <input th:field="*{quantity}" />
                 </td>
+                <td th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">Quantity Error</td>
             </tr>
             <tr>
                 <td colspan="2">

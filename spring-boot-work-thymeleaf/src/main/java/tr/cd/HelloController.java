@@ -2,10 +2,10 @@ package tr.cd;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class HelloController {
    * @param model
    * @return product list
    */
-  @RequestMapping("/list")
+  @RequestMapping(value = "/list", method = RequestMethod.GET)
   public String getList(Model model) {
 
     List<Product> products = ProductRepository.getProducts();
@@ -42,10 +42,15 @@ public class HelloController {
    * @param model
    * @return product
    */
-  @RequestMapping(value = "/detail", method = RequestMethod.GET)
-  public String getProductById(@RequestParam Integer id, Model model) {
+  @GetMapping("/detail")
+  public String getProductById(@RequestParam(required = false) Integer id, Model model) {
 
-    Product product = ProductRepository.getProductById(id);
+    Product product;
+    if (id==null) {
+      product = new Product();
+    } else {
+      product = ProductRepository.getProductById(id);
+    }
 
     model.addAttribute("product",product);
 
@@ -53,12 +58,16 @@ public class HelloController {
   }
 
 
-  @RequestMapping(value = "/detail", method = RequestMethod.POST)
-  public String getProductById(Product product) {
+  @PostMapping("/detail")
+  public String getProductById(@Valid Product product, BindingResult bindingResult) {
+
+    if (bindingResult.hasErrors()) {
+      return "/detail";
+    }
 
     ProductRepository.saveProduct(product);
 
-    return "redirect:detail?id=" + product.getId();
+    return "redirect:list";
   }
 
 

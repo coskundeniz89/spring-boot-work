@@ -29,17 +29,23 @@ public class ProductRepository {
 
     Optional<Product> product = products.stream().filter(p -> p.getId() == id).findFirst();
 
-    return product.orElse(new Product(0, "Title", 0));
+    return product.orElse(null);
 
   }
 
   public static void saveProduct(Product product) {
     Objects.requireNonNull(product);
-    Product existingProduct = getProductById(product.getId());
 
-    if (existingProduct.getId() != 0) {
-      products.remove(existingProduct);
+    Product tempProduct = getProductById(product.getId());
+
+    if (tempProduct==null) {
+      tempProduct = new Product(product.getId(),product.getTitle(),product.getQuantity());
+      products.add(tempProduct);
+    }
+    else {
+      products.remove(tempProduct);
       products.add(product);
     }
+
   }
 }
