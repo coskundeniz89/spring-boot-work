@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<header th:fragment="header"  class="content">
+    <h3 >
+        This part is from 'Header' fragment.
+    </h3>
+    <nav id="menu" class="content">
+        <ul>
+            <li>
+                <a href="../index.html" th:href="@{/index}" th:text="#{menu.home}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="../list.html" th:href="@{/list}" th:text="#{menu.products}">
+                    Products
+                </a>
+            </li>
+            <li>
+                <a href="../detail.html" th:href="@{/detail}" th:text="#{menu.addProduct}">
+                    Add Product
+                </a>
+            </li>
+            <li>
+                <a th:if="__${#locale}__==tr"  href="../index.html"  th:href="@{/index(lang='en')}">
+                    EN
+                </a>
+                <a th:unless="__${#locale}__==tr"  href="../index.html"  th:href="@{/index(lang='tr')}">
+                    TR
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="clear"></div>
+</header>
+</body>
+</html>
