@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <body>
-<header th:fragment="header"  class="content">
+<header data-th-fragment="header"  class="content">
     <h3 >
         This part is from 'Header' fragment.
     </h3>
     <nav id="menu" class="content">
         <ul>
             <li>
-                <a href="../index.html" th:href="@{/index}" th:text="#{menu.home}">
+                <a href="../index.html" data-th-href="@{/index}" data-th-text="#{menu.home}">
                     Home
                 </a>
             </li>
             <li>
-                <a href="../list.html" th:href="@{/list}" th:text="#{menu.products}">
+                <a href="../list.html" data-th-href="@{/list}" data-th-text="#{menu.products}">
                     Products
                 </a>
             </li>
             <li>
-                <a href="../detail.html" th:href="@{/detail}" th:text="#{menu.addProduct}">
+                <a href="../detail.html" data-th-href="@{/detail}" data-th-text="#{menu.addProduct}">
                     Add Product
                 </a>
             </li>
             <li>
-                <a th:if="__${#locale}__==tr"  href="../index.html"  th:href="@{/index(lang='en')}">
+                <a data-th-if="__${#locale}__==tr"  href="../index.html"  data-th-href="@{/index(lang='en')}">
                     EN
                 </a>
-                <a th:unless="__${#locale}__==tr"  href="../index.html"  th:href="@{/index(lang='tr')}">
+                <a data-th-unless="__${#locale}__==tr"  href="../index.html"  data-th-href="@{/index(lang='tr')}">
                     TR
                 </a>
             </li>
