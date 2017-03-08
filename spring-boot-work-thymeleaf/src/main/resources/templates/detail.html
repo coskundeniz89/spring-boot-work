@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common/head :: head(#{site.title})">
+<html lang="en">
+<head data-th-replace="common/head :: head(#{site.title})">
     <meta charset="UTF-8"/>
-    <link href="../static/css/style.css" th:href="@{/css/style.css}" type="text/css"/>
+    <link href="../static/css/style.css" data-th-href="@{/css/style.css}" type="text/css"/>
     <title>Hello</title>
 </head>
 <body>
-<header th:replace="common/header :: header">
+<header data-th-replace="common/header :: header">
     If you see this, it means you have opened this file statically.
 </header>
 <section class="content">
     <h3>
         Form Example with Validation
     </h3>
-    <form action="" method="post" th:action="@{/detail}" th:object="${product}">
+    <form action="" method="post" data-th-action="@{/detail}" data-th-object="${product}">
 
         <table>
             <tr>
@@ -21,27 +21,27 @@
                     Id:
                 </td>
                 <td>
-                    <input th:field="*{id}" />
+                    <input data-th-field="*{id}" />
                 </td>
-                <td th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Id Error</td>
+                <td data-th-if="${#fields.hasErrors('id')}" data-th-errors="*{id}">Id Error</td>
             </tr>
             <tr>
                 <td>
                     Title:
                 </td>
                 <td>
-                    <input th:field="*{title}" />
+                    <input data-th-field="*{title}" />
                 </td>
-                <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</td>
+                <td data-th-if="${#fields.hasErrors('title')}" data-th-errors="*{title}">Title Error</td>
             </tr>
             <tr>
                 <td>
                     Quantity:
                 </td>
                 <td>
-                    <input th:field="*{quantity}" />
+                    <input data-th-field="*{quantity}" />
                 </td>
-                <td th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">Quantity Error</td>
+                <td data-th-if="${#fields.hasErrors('quantity')}" data-th-errors="*{quantity}">Quantity Error</td>
             </tr>
             <tr>
                 <td colspan="2">
@@ -53,7 +53,7 @@
         </table>
     </form>
 </section>
-<footer th:replace="common/footer :: footer">
+<footer data-th-replace="common/footer :: footer">
     If you see this, it means you have opened this file statically.
 </footer>
 </body>
