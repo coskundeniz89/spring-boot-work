@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<header data-th-fragment="header"  class="content">
+    <h3 >
+        This part is from 'Header' fragment.
+    </h3>
+    <nav id="menu" class="content">
+        <ul>
+            <li>
+                <a href="../index.html" data-th-href="@{/index}" data-th-text="#{menu.home}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="../list.html" data-th-href="@{/list}" data-th-text="#{menu.products}">
+                    Products
+                </a>
+            </li>
+            <li>
+                <a href="../detail.html" data-th-href="@{/detail}" data-th-text="#{menu.addProduct}">
+                    Add Product
+                </a>
+            </li>
+            <li>
+                <a data-th-if="__${#locale}__==tr"  href="../index.html"  data-th-href="@{/index(lang='en')}">
+                    EN
+                </a>
+                <a data-th-unless="__${#locale}__==tr"  href="../index.html"  data-th-href="@{/index(lang='tr')}">
+                    TR
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="clear"></div>
+</header>
+</body>
+</html>

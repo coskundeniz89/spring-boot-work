@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head data-th-replace="common/head :: head(#{site.title})">
     <meta charset="UTF-8"/>
+    <link href="../static/css/style.css" data-th-href="@{/css/style.css}" type="text/css"/>
     <title>Hello</title>
 </head>
 <body>
-Merhaba Türkiye
+<header data-th-replace="common/header :: header">
+    If you see this, it means you have opened this file statically.
+</header>
+<section class="content">
+    <h2 data-th-text="#{site.title}">
+        Merhaba
+    </h2>
+    <h3>
+        This part is from 'index' file.
+    </h3>
+    This is an example page.
+</section>
+<footer data-th-replace="common/footer :: footer">
+    If you see this, it means you have opened this file statically.
+</footer>
 </body>
 </html>

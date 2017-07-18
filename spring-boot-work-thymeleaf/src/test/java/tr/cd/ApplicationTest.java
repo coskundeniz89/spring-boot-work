@@ -30,8 +30,7 @@ public class ApplicationTest {
   public void getIndex() throws Exception {
     mvc.perform(MockMvcRequestBuilders.get("/")
         .accept(MediaType.TEXT_HTML))
-        .andExpect(status().isOk())
-        .andExpect(content().string(containsString("Merhaba Türkiye")));
+        .andExpect(status().isOk());
   }
 
 }

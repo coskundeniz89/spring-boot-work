@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-th-replace="common/head :: head(#{site.title})">
+    <meta charset="UTF-8"/>
+    <link href="../static/css/style.css" data-th-href="@{/css/style.css}" type="text/css"/>
+    <title>Hello</title>
+</head>
+<body>
+<header data-th-replace="common/header :: header">
+    If you see this, it means you have opened this file statically.
+</header>
+<section class="content">
+    <h3>
+        Form Example with Validation
+    </h3>
+    <form action="" method="post" data-th-action="@{/detail}" data-th-object="${product}">
+
+        <table>
+            <tr>
+                <td>
+                    Id:
+                </td>
+                <td>
+                    <input data-th-field="*{id}" />
+                </td>
+                <td data-th-if="${#fields.hasErrors('id')}" data-th-errors="*{id}">Id Error</td>
+            </tr>
+            <tr>
+                <td>
+                    Title:
+                </td>
+                <td>
+                    <input data-th-field="*{title}" />
+                </td>
+                <td data-th-if="${#fields.hasErrors('title')}" data-th-errors="*{title}">Title Error</td>
+            </tr>
+            <tr>
+                <td>
+                    Quantity:
+                </td>
+                <td>
+                    <input data-th-field="*{quantity}" />
+                </td>
+                <td data-th-if="${#fields.hasErrors('quantity')}" data-th-errors="*{quantity}">Quantity Error</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">
+                        Save
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</section>
+<footer data-th-replace="common/footer :: footer">
+    If you see this, it means you have opened this file statically.
+</footer>
+</body>
+</html>

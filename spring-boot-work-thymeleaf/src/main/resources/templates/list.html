@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-th-replace="common/head :: head(#{site.title})">
+    <meta charset="UTF-8"/>
+    <link href="../static/css/style.css" data-th-href="@{/css/style.css}" type="text/css"/>
+    <title>Hello</title>
+</head>
+<header data-th-replace="common/header :: header">
+    If you see this, it means you have opened this file statically.
+</header>
+<section class="content">
+    <h3>
+        Products
+    </h3>
+    <hr/>
+    <p>
+        List example
+    </p>
+    <table id="products">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Detail
+            </th>
+        </tr>
+        <tr data-th-each="prod : ${prods}" data-th-class="${prodStat.odd}? 'odd'">
+            <td data-th-text="${prod.id}">
+                0
+            </td>
+            <td data-th-text="${prod.title}">
+                Static Product
+            </td>
+            <td data-th-text="${prod.quantity}">
+                324
+            </td>
+            <td>
+                <a href="detail.html" data-th-href="@{/detail(id=${prod.id})}" >
+                    <strong>
+                        Detail
+                    </strong>
+                </a>
+            </td>
+        </tr>
+    </table>
+</section>
+<footer data-th-replace="common/footer :: footer" class="content">
+    If you see this, it means you have opened this file statically.
+</footer>
+</html>
