@@ -1,0 +1,31 @@
+my:
+  servers:
+    - dev.bar.com
+    - foo.bar.com
+  enabled: true
+  security:
+    username: myname
+#    password: mypass
+    roles:
+      - A
+      - B
+
+server:
+    address: defaultAddress
+
+---
+
+spring:
+    profiles: qa
+server:
+    address: testAddress
+
+---
+
+spring:
+    profiles: prod
+server:
+    address: productionAddress
+
+
+### --- işareti ile ve spring.profiles belirterek environment değişikliklerini yapabilirsiniz.
