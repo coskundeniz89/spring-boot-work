@@ -12,10 +12,13 @@ import java.util.List;
  */
 @Component
 @ConfigurationProperties(prefix="my")
+//@Validated
 public class MyConfig {
+  //  @NotNull
 
   private List<String> servers;
   private boolean enabled;
+//  @Valid
   private Security security;
 
   public List<String> getServers() {
@@ -43,6 +46,7 @@ public class MyConfig {
   }
 
   public static class Security {
+//    @NotEmpty
     private String username;
     private String password;
     private List<String> roles = new ArrayList<>(Collections.singleton("USER"));
