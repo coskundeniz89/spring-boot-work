@@ -1,0 +1,7 @@
+logging:
+  level:
+    ROOT: TRACE
+  #path: logs/ # you must set path or file
+  file: logs/app.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
