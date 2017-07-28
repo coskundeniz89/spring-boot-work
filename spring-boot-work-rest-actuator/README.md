@@ -5,6 +5,10 @@
 
 
 
-http://localhost:8080/greeting
-http://localhost:8080/greeting?name=coşkun
-http://localhost:8080/greeting/coşkun
+http://localhost:9000/greeting
+http://localhost:9000/greeting?name=coşkun
+http://localhost:9000/greeting/coşkun
+
+
+
+http://localhost:9001/health
